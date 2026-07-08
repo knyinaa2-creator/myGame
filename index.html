@@ -403,40 +403,68 @@
 
     </script>
 </body>
-    <style>
-  .game-header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1a1a1a; /* 어두운 오락실 느낌의 배경색 */
-    padding: 12px 24px;
-    margin-bottom: 20px;
-    font-family: 'Malgun Gothic', sans-serif;
-    border-bottom: 3px solid #00ffcc; /* 네온 느낌의 하단 테두리 */
+<!-- 좌측 탭 네비게이션 스타일 -->
+<style>
+  /* 메뉴가 게임 화면을 가리지 않도록 전체 화면을 메뉴 너비만큼 우측으로 밀어줍니다 */
+  body {
+    margin: 0;
+    padding-left: 220px; 
   }
-  .current-game-title {
+
+  .side-nav {
+    position: fixed; /* 스크롤을 내려도 왼쪽에 고정 */
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    border-right: 3px solid #00ffcc;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    font-family: 'Malgun Gothic', sans-serif;
+    z-index: 9999; /* 메뉴가 게임 화면보다 항상 위에 오도록 설정 */
+  }
+
+  .nav-title {
     color: #fff;
     font-size: 16px;
     font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
   }
-  .next-game-btn {
-    color: #00ffcc;
+
+  .nav-tab {
+    display: block;
+    color: #888;
     text-decoration: none;
+    padding: 15px 20px;
+    font-size: 15px;
     font-weight: bold;
-    padding: 6px 14px;
-    border: 2px solid #00ffcc;
-    border-radius: 6px;
-    transition: all 0.2s ease-in-out;
+    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
   }
-  .next-game-btn:hover {
-    background-color: #00ffcc;
-    color: #1a1a1a;
-    box-shadow: 0 0 10px #00ffcc;
+
+  /* 현재 선택된 탭의 스타일 */
+  .nav-tab.active {
+    color: #00ffcc;
+    background-color: #333;
+    border-left: 5px solid #00ffcc;
+  }
+
+  /* 마우스를 올렸을 때의 스타일 */
+  .nav-tab:hover:not(.active) {
+    background-color: #2a2a2a;
+    color: #fff;
   }
 </style>
 
-<div class="game-header-nav">
-  <span class="current-game-title">🎮 현재 플레이 중: 첫 번째 게임</span>
-  <a href="index2.html" class="next-game-btn">두 번째 게임 하러 가기 ➔</a>
+<!-- 좌측 탭 네비게이션 바 -->
+<div class="side-nav">
+  <div class="nav-title">🕹️ 고전 오락실</div>
+  
+  <!-- 첫 번째 게임 파일이므로 첫 번째 메뉴에 'active' 클래스를 넣습니다 -->
+  <a href="index.html" class="nav-tab active">🎮 첫 번째 게임</a>
+  <a href="index2.html" class="nav-tab">🎮 두 번째 게임</a>
 </div>
 </html>
