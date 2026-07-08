@@ -440,40 +440,60 @@
 
     </script>
 </body>
-    <style>
-  .game-header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1a1a1a; /* 어두운 오락실 느낌의 배경색 */
-    padding: 12px 24px;
-    margin-bottom: 20px;
-    font-family: 'Malgun Gothic', sans-serif;
-    border-bottom: 3px solid #00ffcc; /* 네온 느낌의 하단 테두리 */
+<!-- 좌측 탭 네비게이션 스타일 (index.html과 동일) -->
+<style>
+  body {
+    margin: 0;
+    padding-left: 220px; 
   }
-  .current-game-title {
+  .side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    border-right: 3px solid #00ffcc;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    font-family: 'Malgun Gothic', sans-serif;
+    z-index: 9999;
+  }
+  .nav-title {
     color: #fff;
     font-size: 16px;
     font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
   }
-  .next-game-btn {
-    color: #00ffcc;
+  .nav-tab {
+    display: block;
+    color: #888;
     text-decoration: none;
+    padding: 15px 20px;
+    font-size: 15px;
     font-weight: bold;
-    padding: 6px 14px;
-    border: 2px solid #00ffcc;
-    border-radius: 6px;
-    transition: all 0.2s ease-in-out;
+    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
   }
-  .next-game-btn:hover {
-    background-color: #00ffcc;
-    color: #1a1a1a;
-    box-shadow: 0 0 10px #00ffcc;
+  .nav-tab.active {
+    color: #00ffcc;
+    background-color: #333;
+    border-left: 5px solid #00ffcc;
+  }
+  .nav-tab:hover:not(.active) {
+    background-color: #2a2a2a;
+    color: #fff;
   }
 </style>
 
-<div class="game-header-nav">
-  <span class="current-game-title">🕹️ 현재 플레이 중: 두 번째 게임</span>
-  <a href="index.html" class="next-game-btn">첫 번째 게임 하러 가기 ➔</a>
+<!-- 좌측 탭 네비게이션 바 -->
+<div class="side-nav">
+  <div class="nav-title">🕹️ 고전 오락실</div>
+  
+  <a href="index.html" class="nav-tab">🎮 첫 번째 게임</a>
+  <!-- 두 번째 게임 파일이므로 두 번째 메뉴에 'active' 클래스를 넣습니다 -->
+  <a href="index2.html" class="nav-tab active">🎮 두 번째 게임</a>
 </div>
 </html>
